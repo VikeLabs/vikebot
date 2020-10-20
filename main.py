@@ -10,9 +10,6 @@ import requests
 from bs4 import BeautifulSoup
 import settings
 
-# Secret Token
-TOKEN = "NzYzMTUwNTUzMDMwNTkwNTA0.X3zhVg.vYh8Uj2lJudt10kGuuw-enBxK2M"
-
 # Prefix
 client = commands.Bot(command_prefix=".")
 #client.remove_command('help')
@@ -46,10 +43,6 @@ async def on_server_join(member):
 async def ping(ctx):
     await ctx.send('pong')
 
-
-# Bot's Email info
-ADDRESS = 'uvicemailbot@gmail.com'
-PASSWORD = 'hwVZzWnLRfCpXu6'
 verify_code = 'J4B97H' #Initialized to random value
 
 # Creates and sends email
