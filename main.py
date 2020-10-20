@@ -8,6 +8,7 @@ from email.mime.text import MIMEText
 from discord.utils import get
 import requests
 from bs4 import BeautifulSoup
+import settings
 
 # Secret Token
 TOKEN = "NzYzMTUwNTUzMDMwNTkwNTA0.X3zhVg.vYh8Uj2lJudt10kGuuw-enBxK2M"
