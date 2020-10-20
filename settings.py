@@ -6,6 +6,7 @@ try:
 except:
     print("ignoring dotenv file...")
 
-# sample usage of loading environment variable from .env file
+# sample usage of loading environment variable from .env file in the following syntax.
 # KEY=VALUE
-# print(os.environ["HELLO"]) 
+ADDRESS = os.environ["BOT_EMAIL"]
+PASSWORD = os.environ["BOT_PASSWORD"]
