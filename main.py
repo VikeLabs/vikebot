@@ -8,13 +8,12 @@ from email.mime.text import MIMEText
 from discord.utils import get
 import requests
 from bs4 import BeautifulSoup
-
-# Secret Token
-TOKEN = "NzYzMTUwNTUzMDMwNTkwNTA0.X3zhVg.vYh8Uj2lJudt10kGuuw-enBxK2M"
+import settings
 
 # Prefix
 client = commands.Bot(command_prefix=".")
-#client.remove_command('help')
+# client.remove_command('help')
+
 
 @client.event
 async def on_ready():
@@ -26,6 +25,8 @@ async def on_ready():
                                                           "please type: '.setup (your desired email suffix here e.g. uvic.ca)'")
 
 # On member join, set visibility of all channels to false, except "verify-channel" and send an explanatory msg
+
+
 @client.event
 async def on_server_join(member):
     for channel in member.guild.channels:
@@ -35,23 +36,23 @@ async def on_server_join(member):
     for channel in member.server.channels:
         if channel.name == 'verify-channel':
             message = 'Hello {}, welcome to {}'.format(member.mention, server.name) + \
-                                               "In order to gain access to the other channels in this server, please verify " \
-                                               "that you are a UVic student, by responding with the following command: " \
-                                               "'.email NetlinkID@uvic.ca', using your own Netlink ID."
+                "In order to gain access to the other channels in this server, please verify " \
+                "that you are a UVic student, by responding with the following command: " \
+                "'.email NetlinkID@uvic.ca', using your own Netlink ID."
             await client.send_message(default_channel, message)
 
 # Ping Pong command
+
+
 @client.command()
 async def ping(ctx):
     await ctx.send('pong')
 
-
-# Bot's Email info
-ADDRESS = 'uvicemailbot@gmail.com'
-PASSWORD = 'hwVZzWnLRfCpXu6'
 verify_code = 'J4B97H' #Initialized to random value
 
 # Creates and sends email
+
+
 def send_email(sender, recipient, subject, body):
     msg = MIMEMultipart()
     msg['From'] = sender
@@ -60,13 +61,16 @@ def send_email(sender, recipient, subject, body):
     msg.attach(MIMEText(body, 'plain'))
     s.send_message(msg)
 
+
 # Logs into the Bot's email account
 if __name__ == '__main__':
-    s= smtplib.SMTP(host='smtp.gmail.com', port=587)
+    s = smtplib.SMTP(host='smtp.gmail.com', port=587)
     s.starttls()
     s.login(ADDRESS, PASSWORD)
 
 # Email command
+
+
 @client.command()
 async def email(ctx, address):
     run = True
@@ -89,9 +93,11 @@ async def email(ctx, address):
 # Checks last 8 characters of given email address
 # Input: add - email address
 # Output: True if last 8 characters = "@uvic.ca", return False otherwise
+
+
 def is_right_address(add, domain):
     l = add.split('@')
-    if l[-1]==domain:
+    if l[-1] == domain:
         return True
     else:
         return False
@@ -99,6 +105,8 @@ def is_right_address(add, domain):
 # Creates randomized code
 # Input: n/a
 # Output: a random 6 character string
+
+
 def create_code():
     length = 6
     letters = string.ascii_lowercase
@@ -108,12 +116,15 @@ def create_code():
     return code
 
 # Code command
+
+
 @client.command()
 async def code(ctx, entry):
     if entry == verify_code:
         await ctx.send('Code accepted. Welcome to the server!')
     else:
         await ctx.send('Invalid code.')
+
 
 @client.command(brief="Search Stack Overflow", description="Use '.stack' followed by comma separated search terms "
                                                            "to search Stack Overflow. (e.g. '.stack python,string,split')")
@@ -134,7 +145,9 @@ async def stack(ctx, entry):
 
 # Sets up 'verify-channel' and the role 'Verified'
 DOMAIN = ''
-@client.command(brief="Set up the bot",description="'.setup (your desired email suffix here e.g. uvic.ca)'")
+
+
+@client.command(brief="Set up the bot", description="'.setup (your desired email suffix here e.g. uvic.ca)'")
 async def setup(ctx, domain):
     global DOMAIN
     domain = DOMAIN
