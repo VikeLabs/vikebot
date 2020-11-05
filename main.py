@@ -9,6 +9,7 @@ from discord.utils import get
 import requests
 from bs4 import BeautifulSoup
 import settings
+from settings import ADDRESS, PASSWORD
 
 # Prefix
 client = commands.Bot(command_prefix=".")
