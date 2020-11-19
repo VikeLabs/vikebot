@@ -156,6 +156,8 @@ async def setup(ctx, domain):
     role_exists = False
     channel_exists = False
 
+    await guild.role[0].edit(read_messages=False, view_channel=False)
+
     for role in guild.roles:
         if role.name == 'Verified':
             role_exists = True

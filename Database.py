@@ -11,5 +11,4 @@ class Data:
 
 
 def __repr__(self):
-    return "<User(id='%s', verified='%s', email='%s')>" % (
-    self.id, self.verified, self.email)
+    return "<User(id='%s', verified='%s', email='%s')>" % (self.id, self.verified, self.email)
