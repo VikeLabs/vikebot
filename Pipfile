@@ -7,7 +7,7 @@ name = "pypi"
 "discord.py" = "*"
 beautifulsoup4 = "*"
 requests = "*"
-sqlalchemy = "*"
+sqlite3 = "*"
 
 [dev-packages]
 python-dotenv = "*"

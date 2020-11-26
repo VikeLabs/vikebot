@@ -1,14 +1,14 @@
-from sqlalchemy import Column, Integer, String, BOOLEAN, engine
+import sqlite3
+conn = sqlite3.connect('discord.db')
 
+c = conn.cursor()
 
-class Data:
-    __tablename__ = 'user_info'
+""""""
+#c.execute('''CREATE TABLE userData
+            #(discordID, userEmail, verified)''')
 
-    id = Column(Integer, primary_key=True)
-    verified = Column(BOOLEAN)
-    email = Column(String)
-    verify_code = Column(String)
+c.execute("INSERT INTO userData VALUES (userDiscordID, userEmail, userVerified)")
 
+conn.commit()
 
-def __repr__(self):
-    return "<User(id='%s', verified='%s', email='%s')>" % (self.id, self.verified, self.email)
+conn.close()
