@@ -8,5 +8,4 @@ except:
 
 # sample usage of loading environment variable from .env file in the following syntax.
 # KEY=VALUE
-ADDRESS = os.environ["BOT_EMAIL"]
-PASSWORD = os.environ["BOT_PASSWORD"]
+TOKEN = os.environ["BOT_TOKEN"]

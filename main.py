@@ -6,6 +6,8 @@ import string
 from discord.utils import get
 import requests
 from bs4 import BeautifulSoup
+import settings
+from settings import TOKEN
 
 # Prefix
 client = commands.Bot(command_prefix=".")
