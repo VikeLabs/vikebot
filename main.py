@@ -1,13 +1,10 @@
-import discord
-from discord.ext import commands
-import random
-import smtplib
-import string
-from discord.utils import get
+import os
+import uvloop
 import requests
+from discord.ext import commands
 from bs4 import BeautifulSoup
-import settings
-from settings import TOKEN
+
+TOKEN = os.environ.get("BOT_TOKEN")
 
 # Prefix
 client = commands.Bot(command_prefix=".")
@@ -18,14 +15,18 @@ client = commands.Bot(command_prefix=".")
 async def on_ready():
     print("Bot is ready.")
 
+
 # Ping Pong command
 @client.command()
 async def ping(ctx):
     await ctx.send('pong')
 
+
 # Stack Overflow searcher
-@client.command(brief="Search Stack Overflow", description="Use '.stack' followed by comma separated search terms "
-                                                           "to search Stack Overflow. (e.g. '.stack python,string,split')")
+@client.command(
+    brief="Search Stack Overflow",
+    description="""Use '.stack' followed by comma separated search terms to
+        search Stack Overflow. (e.g. '.stack python,string,split')""")
 async def stack(ctx, entry):
     final_entry = str(entry).replace(',', "+")
     result = requests.get("https://stackoverflow.com/search?q=" + final_entry)
@@ -42,6 +43,6 @@ async def stack(ctx, entry):
     await ctx.send(finalurl)
 
 # Code must be above this line
+# this might be useful, we'll see
+uvloop.install()
 client.run(TOKEN)
-
-s.quit()
