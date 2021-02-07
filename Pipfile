@@ -7,9 +7,16 @@ name = "pypi"
 "discord.py" = "*"
 beautifulsoup4 = "*"
 requests = "*"
+uvloop = "*"
 
 [dev-packages]
-python-dotenv = "*"
+pylint = "*"
+flake8 = "*"
+pytest = "*"
 
 [requires]
 python_version = "3.9"
+
+[scripts]
+lint = "pylint main.py"
+flake8 = "flake8"
