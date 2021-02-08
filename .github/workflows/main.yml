@@ -27,12 +27,12 @@ jobs:
         if: steps.cache-pipenv.outputs.cache-hit != 'true'
         run: |
           pipenv install --deploy --dev
-      - name: Run linter
-        run: |
-          pipenv run lint
-      - name: Run flake8
-        run: |
-          pipenv run flake8
+      # - name: Run linter
+      #   run: |
+      #     pipenv run lint
+      # - name: Run flake8
+      #   run: |
+      #     pipenv run flake8
       - name: Setup node.js (for pyright)
         uses: actions/setup-node@v1
         with:
