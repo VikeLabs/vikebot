@@ -9,7 +9,6 @@ beautifulsoup4 = "*"
 requests = "*"
 
 [dev-packages]
-python-dotenv = "*"
 
 [requires]
 python_version = "3.9"

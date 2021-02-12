@@ -1,18 +1,18 @@
 import discord
 from discord.ext import commands
 import random
+import os
 import smtplib
 import string
 from discord.utils import get
 import requests
 from bs4 import BeautifulSoup
-import settings
-from settings import TOKEN
+
+TOKEN = os.environ.get("BOT_TOKEN")
 
 # Prefix
 client = commands.Bot(command_prefix=".")
 # client.remove_command('help')
-
 
 @client.event
 async def on_ready():
