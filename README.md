@@ -31,3 +31,14 @@ npx dynamodb-admin
 # For Mac/Linux:
 DYNAMO_ENDPOINT=http://localhost:8000 npx dynamodb-admin
 ```
+
+Once the all of the above is setup, try playing around using the Python interrupter.
+```
+$ pipenv run python
+Python 3.9.1 (default, Jan 20 2021, 00:00:00)
+>>> from database import *
+# let's create a document
+u = DiscordUserModel(100)
+# save the document
+u.save()
+```
