@@ -132,9 +132,4 @@ dmypy.json
 .idea
 
 # DynamoDB
-DynamoDBLocal_lib
-third_party_licenses
-*.db
-*.zip
-*.jar
-LICENSE.txt
+tmp/
