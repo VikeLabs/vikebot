@@ -1,14 +1,24 @@
-import sqlite3
-conn = sqlite3.connect('discord.db')
+import os
+from pynamodb.models import Model
+from pynamodb.attributes import NumberAttribute, UnicodeAttribute, BooleanAttribute
 
-c = conn.cursor()
+# condtionally set host meta attribute unless in production.
+environment = os.getenv("PYTHON_ENV") or "development"
 
-""""""
-#c.execute('''CREATE TABLE userData
-            #(discordID, userEmail, verified)''')
 
-c.execute("INSERT INTO userData VALUES (userDiscordID, userEmail, userVerified)")
+class DiscordUserModel(Model):
+    """
+    A DynamoDB User
+    """
+    class Meta:
+        table_name = "dynamodb-user"
+        if environment == "development":
+            host = "http://localhost:8000"
+    id = NumberAttribute(hash_key=True)
+    first_name = UnicodeAttribute()
+    last_name = UnicodeAttribute()
+    email = UnicodeAttribute()
+    verified = BooleanAttribute()
 
-conn.commit()
 
-conn.close()
+DiscordUserModel.create_table(read_capacity_units=1, write_capacity_units=1)

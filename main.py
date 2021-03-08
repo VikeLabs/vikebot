@@ -1,22 +1,31 @@
 import discord
 from discord.ext import commands
 import random
+import os
 import smtplib
 import string
 from discord.utils import get
 import requests
 from bs4 import BeautifulSoup
-import settings
-from settings import TOKEN
+from database import *
+
+TOKEN = os.environ.get("BOT_TOKEN")
 
 # Prefix
 client = commands.Bot(command_prefix=".")
 # client.remove_command('help')
 
+# Will be replaced with connecting to actual database when we have one
+DiscordUserModel()
 
+
+
+# On bot start
 @client.event
 async def on_ready():
     print("Bot is ready.")
+
+
 
 # Ping Pong command
 @client.command()
@@ -41,7 +50,22 @@ async def stack(ctx, entry):
     finalurl = "https://stackoverflow.com" + str(url[0])
     await ctx.send(finalurl)
 
+# Database Interface - Need to implement verified check
+@client.command()
+async def add_info(ctx, arg1, arg2, arg3, user: discord.user):
+    author = ctx.message.author
+    # Checks for missing data
+    if not arg1 or arg2 or arg3:
+        await ctx.send('The information you have entered is incomplete')
+    # Saves to database
+    NoSQL = DiscordUserModel(author, first_name=arg1, last_name=arg2, email=arg3)
+    NoSQL.save()
+    # Attempts to PM user and verify message content - NOT COMPLETE
+    message = "The information you submitted is..."
+    await client.send_message(user, message)
+
+
 # Code must be above this line
 client.run(TOKEN)
 
-s.quit()
+#s.quit()
