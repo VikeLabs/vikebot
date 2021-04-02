@@ -1,6 +1,6 @@
 import os
 from pynamodb.models import Model
-from pynamodb.attributes import (NumberAttribute, UnicodeAttribute)
+from pynamodb.attributes import NumberAttribute, UnicodeAttribute
 
 # condtionally set host meta attribute unless in production.
 environment = os.getenv("PYTHON_ENV") or "development"
