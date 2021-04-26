@@ -19,6 +19,7 @@ class DiscordUserModel(Model):
     first_name = UnicodeAttribute(null=True)
     last_name = UnicodeAttribute(null=True)
     github = UnicodeAttribute(null=True)
+    linkedin = UnicodeAttribute(null=True)
 
 
 DiscordUserModel.create_table(read_capacity_units=1, write_capacity_units=1)
