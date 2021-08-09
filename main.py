@@ -1,5 +1,4 @@
 import discord
-from discord.ext import commands
 import random
 import os
 import smtplib
@@ -7,21 +6,26 @@ import string
 from discord.utils import get
 import requests
 from bs4 import BeautifulSoup
+from discord.ext import commands
 
 TOKEN = os.environ.get("BOT_TOKEN")
 
 # Prefix
 client = commands.Bot(command_prefix=".")
+
+
 # client.remove_command('help')
 
 @client.event
 async def on_ready():
     print("Bot is ready.")
 
+
 # Ping Pong command
 @client.command()
 async def ping(ctx):
     await ctx.send('pong')
+
 
 # Stack Overflow searcher
 @client.command(brief="Search Stack Overflow", description="Use '.stack' followed by comma separated search terms "
@@ -40,6 +44,7 @@ async def stack(ctx, entry):
     url = str(temp2_url).split(';')
     finalurl = "https://stackoverflow.com" + str(url[0])
     await ctx.send(finalurl)
+
 
 # Code must be above this line
 client.run(TOKEN)
