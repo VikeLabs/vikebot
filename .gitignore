@@ -133,3 +133,7 @@ dmypy.json
 
 # DynamoDB
 tmp/
+
+# Nodejs
+node_modules
+config.json
