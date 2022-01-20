@@ -7,6 +7,7 @@ Documentation is work in progress!
 2. Run `main.py` using `pipenv run python main.py`
     - **Note**: The bot expects either the `BOT_TOKEN` passed in as an environement variable or within a `.env` file in the project root directory. 
 
+
 ### Database
 VikeBot uses DynamoDB, which is a NoSQL database by Amazon. Below provides some brief instructions on how to setup a local instance of DynamoDB as well as a visual tool to interact with the database.
 
