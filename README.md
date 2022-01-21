@@ -3,7 +3,7 @@ Documentation is work in progress!
 
 ## Pycord
 Discord.py is now deprecated so we're moving to an alternative ~ Pycord. Pycord is a fork of Discord.py being maintained from v1.7.3 onwards. 
-The documentation to get started with Pycord can be found [Here!] (https://docs.pycord.dev/en/master/#getting-started)
+The documentation to get started with Pycord can be found [Here!](https://docs.pycord.dev/en/master/#getting-started)
 
 ## Development
 
