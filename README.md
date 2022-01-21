@@ -14,6 +14,12 @@ The documentation to get started with Pycord can be found [Here!](https://docs.p
     - **Note**: The bot expects either the `BOT_TOKEN` passed in as an environement variable or within a `.env` file in the project root directory. 
 
 ### Discord Bot Token    
+1. Login to/Create your [Discord Developer](https://discord.com/developers) account. 
+2. Create a `New Application` from the dashboard, give the app a name to match the use. Eg: test-bot.
+3. In the Application, click on `Bot` from the menu to the left.
+4. Create a new bot on the Build-A-Bot page by clicking on the `New Bot` button. 
+5. Once the bot is created, you'll see a `Copy` button under Token on the bot page. 
+6. Paste the copied Token into the `.env` file in the project root directory.
 
 ### Database
 VikeBot uses DynamoDB, which is a NoSQL database by Amazon. Below provides some brief instructions on how to setup a local instance of DynamoDB as well as a visual tool to interact with the database.
