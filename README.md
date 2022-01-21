@@ -7,6 +7,10 @@ The documentation to get started with Pycord can be found [Here!](https://docs.p
 
 ## Development
 
+### .env file
+
+
+
 ### Pipenv
 1. Use [pipenv](https://github.com/pypa/pipenv) to manage dependencies etc.
 2. Execute `pipenv install` to install dependecies.
