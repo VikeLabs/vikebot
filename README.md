@@ -8,7 +8,8 @@ The documentation to get started with Pycord can be found [Here!](https://docs.p
 ## Development
 
 ### .env file
-
+1. Create a `.env` file in the root directory.
+2. Add the `.env` file to `.gitignore`
 
 
 ### Pipenv
