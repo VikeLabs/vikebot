@@ -1,11 +1,19 @@
 # VikeBot
 Documentation is work in progress!
 
+## Pycord
+Discord.py is now deprecated so we're moving to an alternative ~ Pycord. Pycord is a fork of Discord.py being maintained from v1.7.3 onwards. 
+The documentation to get started with Pycord can be found [Here!] (https://docs.pycord.dev/en/master/#getting-started)
+
 ## Development
+
+### Pipenv
 1. Use [pipenv](https://github.com/pypa/pipenv) to manage dependencies etc.
 2. Execute `pipenv install` to install dependecies.
 2. Run `main.py` using `pipenv run python main.py`
     - **Note**: The bot expects either the `BOT_TOKEN` passed in as an environement variable or within a `.env` file in the project root directory. 
+
+### Discord Bot Token    
 
 ### Database
 VikeBot uses DynamoDB, which is a NoSQL database by Amazon. Below provides some brief instructions on how to setup a local instance of DynamoDB as well as a visual tool to interact with the database.
