@@ -26,6 +26,9 @@ The documentation to get started with Pycord can be found [Here!](https://docs.p
 5. Once the bot is created, you'll see a `Copy` button under Token on the bot page. 
 6. Paste the copied Token into the `.env` file in the project root directory.
 
+### Docker
+
+
 ### Database
 VikeBot uses DynamoDB, which is a NoSQL database by Amazon. Below provides some brief instructions on how to setup a local instance of DynamoDB as well as a visual tool to interact with the database.
 
